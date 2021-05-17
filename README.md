@@ -8,9 +8,9 @@ To add a session host to a WVD host pool, a [Virtual Machine extension](https://
 
 ## Implementation
 
-[wvd-templates/DSC/Script-RegisterSessionHost.ps1](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/DSC/Script-RegisterSessionHost.ps1) from [Azure/RDS-Templates](https://github.com/Azure/RDS-Templates) contains the original functionality and imported as submodule.
+[ARM-wvd-templates/DSC/Configuration.ps1](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/DSC/Configuration.ps1) from [Azure/RDS-Templates](https://github.com/Azure/RDS-Templates) contains the original functionality and is imported as submodule.
 
-The required source files are added as symbolic links and kept as is. The only exception is `Script-RegisterSessionHost.ps1` which is copied and generalized by commenting any node-specific configuration.
+The required source files are added as symbolic links and kept as is. The only exception is `Configuration.ps1` which is copied as `AddSessionHost.schema.psm1` and generalized by commenting any node-specific configuration.
 
 ## Local Development
 
@@ -20,4 +20,18 @@ To clone the repository, run:
 
 ```shell
 git clone -c core.symlinks=true https://github.com/schnerring/WvdDsc.git
+```
+
+### Adding a New Symbolic Link
+
+In an elevated CMD, run:
+
+```bat
+mklink this-link-points-to c:\that-file
+```
+
+Or in an elevated PowerShell, run:
+
+```powershell
+New-Item -ItemType SymbolicLink -Path .\src\DSCResources\AddSessionHost\Configuration.zip -Value .\RDS-Templates\ARM-wvd-templates\DSC\Configuration.zip
 ```
