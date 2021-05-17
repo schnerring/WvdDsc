@@ -1,0 +1,3 @@
+[submodule "RDS-Templates"]
+	path = RDS-Templates
+	url = https://github.com/Azure/RDS-Templates.git
