@@ -7,7 +7,7 @@ A thin wrapper around Windows Virtual Desktop (WVD) session host registration fu
 Add `src/` temporarily to `$env:PSModulePath`:
 
 ```powershell
-$env:PSModulePath += ";$((Get-Item src/WvdDsc).FullName)"
+$env:PSModulePath = "$((Get-Item src/WvdDsc).FullName);$env:PSModulePath"
 ```
 
 To compile the configuration, run:
@@ -36,7 +36,7 @@ The required source files are added as symbolic links and kept as is. The only e
 Then run:
 
 ```powershell
-Publish-Module -Name WvdDsc -Repository PSGallery -NuGetApiKey $env:PS_GALLERY_API_KEY
+Publish-Module -Path .\src\WvdDsc -Repository PSGallery -NuGetApiKey $env:PS_GALLERY_API_KEY
 ```
 
 ### Git
