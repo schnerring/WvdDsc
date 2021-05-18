@@ -27,7 +27,17 @@ To add a session host to a WVD host pool, a [Virtual Machine extension](https://
 
 The required source files are added as symbolic links and kept as is. The only exception is `Configuration.ps1` which is copied as `AddSessionHost.schema.psm1` and generalized by commenting any node-specific configuration.
 
-## Local Development
+## Development
+
+### Publish Module to PowerShell Gallery
+
+[Configure an API Key](https://docs.microsoft.com/en-us/powershell/scripting/gallery/how-to/managing-profile/creating-apikeys?view=powershell-7.1) and add it to an environment variable named `PS_GALLERY_API_KEY`.
+
+Then run:
+
+```powershell
+Publish-Module -Name WvdDsc -Repository PSGallery -NuGetApiKey $env:PS_GALLERY_API_KEY
+```
 
 ### Git
 
