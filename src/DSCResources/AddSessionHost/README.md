@@ -1,1 +1,0 @@
-./RDS-Templates/ARM-wvd-templates/DSC/README.md
